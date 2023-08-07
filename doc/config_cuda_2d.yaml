@@ -7,11 +7,11 @@ GPU 2D 8-way connectivity:
   # -------------------------------------------------
   
   perform: 
-    correctness:        true
+    correctness:        false
     average:            true
     average_with_steps: true
     density:            false
-    granularity:        true
+    granularity:        false
     memory:             false
     blocksize:          false
   
@@ -62,7 +62,7 @@ GPU 2D 8-way connectivity:
   average_datasets: ["check", "fingerprints", "hamlet", "medical", "tobacco800", "xdocs"]
   
   # List of datasets on which "Average Runtime Tests With Steps" shall be run
-  average_datasets_with_steps: ["3dpes", "fingerprints", "hamlet", "medical", "mirflickr", "tobacco800", "xdocs"]
+  average_datasets_with_steps: ["check", "fingerprints", "hamlet", "medical", "tobacco800", "xdocs"]
    
   # List of datasets on which "Memory Tests" shall be run
   memory_datasets: ["3dpes", "fingerprints", "hamlet", "medical", "mirflickr", "tobacco800", "xdocs"]
