@@ -1,10 +1,8 @@
 FROM nvidia/cuda:11.2.2-cudnn8-devel-ubuntu20.04
-#FROM aimagelab/opencv4.4-cuda11.4.1-ubuntu20.04
 
 RUN apt -qq update                  && \
     DEBIAN_FRONTEND=noninteractive apt -qq install build-essential    \
     python3-pip opencl-headers ocl-icd-opencl-dev cmake g++ -y
-#RUN apt install libopencv-dev python3-opencv -y
 
 RUN apt-get update \
   && apt-get -y install build-essential \
@@ -26,6 +24,7 @@ RUN cmake \
 RUN make -j8
 RUN make install
 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install gnuplot -y
 RUN pip3 install pandas
 
 WORKDIR /workspace
