@@ -4,7 +4,7 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.16)
 cmake_policy(SET CMP0091 NEW)
 
 # ----------------------------------------------------------------------------
@@ -116,7 +116,7 @@ if(YACCLAB_ENABLE_CUDA)
         
         # This flag causes some kernel do not run, for some unknown reason
         #add_compile_options($<$<AND:$<COMPILE_LANGUAGE:CUDA>,$<CONFIG:Debug>>:-G>)
-        add_link_options($<DEVICE_LINK:-dlink>)
+        #add_link_options($<DEVICE_LINK:-dlink>)
                 
 	else()
 		message(WARNING "No CUDA support")
