@@ -10,6 +10,8 @@
 #include <string>
 #include <map>
 #include <memory>
+#include <chrono>
+using namespace std::chrono;
 
 #include <opencv2/imgproc.hpp>
 
@@ -128,6 +130,8 @@ private:
 			size_t filenames_size = filenames.size();
 			ob.StartUnitaryBox(dataset_name, filenames_size);
 
+			float val = 0.0;
+			unsigned int counter;
 			for (unsigned file = 0; file < filenames_size && !stop; ++file) { // For each file in list
 				ob.UpdateUnitaryBox(file);
 
@@ -142,8 +146,13 @@ private:
 
 				// These variables aren't necessary
 				// unsigned n_labels_correct, n_labels_to_control;
-				
+				auto start = high_resolution_clock::now();
 				correct_algo->PerformLabeling();
+				auto end = high_resolution_clock::now();
+				auto duration = duration_cast<microseconds>(end - start);
+				counter++;
+				val += duration.count();
+
 				//n_labels_correct = sauf->n_labels_;
                 YacclabTensorOutput* correct_algo_out = correct_algo->GetOutput();
                 correct_algo_out->PrepareForCheck();
@@ -183,7 +192,10 @@ private:
                 //correct_algo->FreeLabelingData();
 
 			}// END WHILE (LIST OF IMAGES)
+			//std::string elpased_time = "==> Avg Ellapsed us: " + std::to_string(val/counter);
 			ob.StopUnitaryBox();
+			std::cout<<"  ==> Avg Ellapsed us: "<< val/counter <<std::endl;
+			
 		}// END FOR (LIST OF DATASETS)
 
 		// LabelingMapSingleton::GetLabeling(ccl_algorithms[0])->ReleaseInput();
