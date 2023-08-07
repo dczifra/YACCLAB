@@ -131,7 +131,7 @@ private:
 			ob.StartUnitaryBox(dataset_name, filenames_size);
 
 			float val = 0.0;
-			unsigned int counter;
+			unsigned int counter = 0;
 			for (unsigned file = 0; file < filenames_size && !stop; ++file) { // For each file in list
 				ob.UpdateUnitaryBox(file);
 
@@ -194,7 +194,7 @@ private:
 			}// END WHILE (LIST OF IMAGES)
 			//std::string elpased_time = "==> Avg Ellapsed us: " + std::to_string(val/counter);
 			ob.StopUnitaryBox();
-			std::cout<<"  ==> Avg Ellapsed us: "<< val/counter <<std::endl;
+			std::cout<<"  ==> Avg Ellapsed us: "<< val/(counter + 0.00000001) <<std::endl;
 			
 		}// END FOR (LIST OF DATASETS)
 
