@@ -9,7 +9,7 @@ GPU 2D 8-way connectivity:
   perform: 
     correctness:        true
     average:            true
-    average_with_steps: false
+    average_with_steps: true
     density:            false
     granularity:        true
     memory:             false
@@ -56,10 +56,10 @@ GPU 2D 8-way connectivity:
   # -----------------------------
   
   # Note that perform correctness tests on labeling_NULL algorithm does not make sense
-  check_datasets: ["check", "3dpes", "fingerprints", "hamlet", "medical", "mirflickr", "tobacco800", "xdocs"]
+  check_datasets: ["check", "fingerprints", "hamlet", "medical", "tobacco800", "xdocs"]
   
   # List of datasets on which "Average Runtime Tests" shall be run
-  average_datasets: ["3dpes", "fingerprints", "hamlet", "medical", "mirflickr", "tobacco800", "xdocs"]
+  average_datasets: ["check", "fingerprints", "hamlet", "medical", "tobacco800", "xdocs"]
   
   # List of datasets on which "Average Runtime Tests With Steps" shall be run
   average_datasets_with_steps: ["3dpes", "fingerprints", "hamlet", "medical", "mirflickr", "tobacco800", "xdocs"]

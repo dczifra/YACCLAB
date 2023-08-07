@@ -1,7 +1,7 @@
 
 CPU 2D 8-way connectivity:
 
-  execute: true
+  execute: false
   
   # Tests to perform and their number of repetitions
   # ------------------------------------------------
